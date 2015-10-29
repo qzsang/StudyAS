@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/StudyAS.iml" filepath="$PROJECT_DIR$/StudyAS.iml" />
+      <module fileurl="file://$PROJECT_DIR$/aanotations/aanotations.iml" filepath="$PROJECT_DIR$/aanotations/aanotations.iml" />
+      <module fileurl="file://$PROJECT_DIR$/androidtest/androidtest.iml" filepath="$PROJECT_DIR$/androidtest/androidtest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/rocking/rocking.iml" filepath="$PROJECT_DIR$/rocking/rocking.iml" />
+    </modules>
+  </component>
+</project>
