@@ -6,7 +6,9 @@
       <module fileurl="file://$PROJECT_DIR$/aanotations/aanotations.iml" filepath="$PROJECT_DIR$/aanotations/aanotations.iml" />
       <module fileurl="file://$PROJECT_DIR$/androidtest/androidtest.iml" filepath="$PROJECT_DIR$/androidtest/androidtest.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/immoudle/immoudle.iml" filepath="$PROJECT_DIR$/immoudle/immoudle.iml" />
       <module fileurl="file://$PROJECT_DIR$/rocking/rocking.iml" filepath="$PROJECT_DIR$/rocking/rocking.iml" />
+      <module fileurl="file://$PROJECT_DIR$/viewpagedemo/viewpagedemo.iml" filepath="$PROJECT_DIR$/viewpagedemo/viewpagedemo.iml" />
     </modules>
   </component>
 </project>

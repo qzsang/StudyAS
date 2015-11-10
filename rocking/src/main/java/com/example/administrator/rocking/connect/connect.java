@@ -18,7 +18,7 @@ public class connect {
 		BufferedReader in = null;
 		String result = "";
 		try {
-			URL readURL = new URL("http://192.168.191.1:8080/Rocking/system/heartTextAction_saveHeart.do");
+			URL readURL = new URL("http://192.168.191.1:8080/test/connect_list");
 			
 			URLConnection connect = readURL.openConnection();
 
