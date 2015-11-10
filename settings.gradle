@@ -1,1 +1,1 @@
-include ':app', ':aanotations', ':rocking', ':androidtest', ':immoudle', ':viewpagedemo'
+include ':app', ':aanotations', ':rocking', ':androidtest', ':immoudle', ':viewpagedemo', ':gifdemo'
