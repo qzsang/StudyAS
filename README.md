@@ -1,11 +1,9 @@
 # StudyAS
-使用as开发
-
-基于 aanotation注解框架的一些app demo
-
-rocking ：  是王兴的毕业设计
+基于 aanotation注解框架的一些app demo ，具体如下：
 
 viewpagedemo : viewpage无限循环例子
+
+rocking ：  是王兴的毕业设计
 
  gifdemo ： gif 图片播放例子
  
