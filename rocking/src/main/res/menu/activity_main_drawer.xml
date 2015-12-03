@@ -10,14 +10,14 @@
             android:id="@+id/nav_gallery"
             android:icon="@android:drawable/ic_menu_gallery"
             android:title="重力" />
-        <item
+       <!-- <item
             android:id="@+id/nav_slideshow"
             android:icon="@android:drawable/ic_menu_slideshow"
-            android:title="控制中心" />
+            android:title="控制中心" />-->
         -<item
             android:id="@+id/nav_manage"
             android:icon="@android:drawable/ic_menu_manage"
-            android:title="注销" />
+            android:title="退出" />
     </group>
 
     <!--<item android:title="Communicate">

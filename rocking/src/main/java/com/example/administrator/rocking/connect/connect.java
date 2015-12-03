@@ -90,7 +90,7 @@ public class connect {
 				WeightBean w = new WeightBean();
 				w.setData(dataStr);
 				w.setUsername(Constant.username);
-				w.setData(df.format(new Date()));
+				w.setDate(df.format(new Date()));
 
 				FinalDb.create(context).save(w);
 				break;
@@ -99,8 +99,7 @@ public class connect {
 				b.setHdate(dataStr);
 				b.setUsername(Constant.username);
 				b.setHtime(df.format(new Date()));
-				if (context != null)
-					FinalDb.create(context).save(b);
+				FinalDb.create(context).save(b);
 				break;
 
 		}

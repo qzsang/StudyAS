@@ -155,7 +155,7 @@ public class LoginActivity extends AppCompatActivity  {
 
                             Constant.username = email;
                             startActivity(new Intent(LoginActivity.this, MainActivity_.class));
-                            //finish();
+                            finish();
                         } else {
                             Toast.makeText(LoginActivity.this, rs, Toast.LENGTH_LONG).show();
                         }

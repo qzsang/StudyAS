@@ -2,7 +2,6 @@ package com.example.administrator.rocking;
 
 
 import android.app.Fragment;
-import android.content.Intent;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -11,7 +10,9 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
+import com.example.administrator.rocking.application.Constant;
 import com.example.administrator.rocking.fragment.ContentFragment1_;
 import com.example.administrator.rocking.fragment.ContentFragment2_;
 import com.example.administrator.rocking.fragment.ContentFragment3_;
@@ -34,8 +35,11 @@ public class MainActivity extends AppCompatActivity
     LinearLayout side_nav_bar;
 
     Fragment fragment_content[];
+    @ViewById
+    TextView tv_username;
     @AfterViews
     public void creatAfter() {
+        tv_username.setText("欢迎你,"+Constant.username);
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
@@ -88,7 +92,6 @@ public class MainActivity extends AppCompatActivity
                 if (drawer_layout.isDrawerOpen(GravityCompat.START)) {
                     drawer_layout.closeDrawer(GravityCompat.START);
                 }
-                startActivity(new Intent(MainActivity.this, LoginActivity.class));
                 finish();
                 return true;
         }
@@ -112,10 +115,10 @@ public class MainActivity extends AppCompatActivity
 
                 break;
 
-            case R.id.nav_slideshow:
+           /* case R.id.nav_slideshow:
                 index = 3;
 
-                break;
+                break;*/
         }
 
 
