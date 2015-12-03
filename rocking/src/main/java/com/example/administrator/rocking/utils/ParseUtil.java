@@ -31,7 +31,7 @@ public class ParseUtil {
                 JSONObject object = arrary.getJSONObject(i);
 
                 HeartBean heartBean = new HeartBean();
-                heartBean.hid = object.getInt("heartID");
+                heartBean.id = object.getInt("heartID");
                 heartBean.hdate = object.getString("heartDate");
                 heartBean.htime = object.getString("heartTime");
 

@@ -7,6 +7,15 @@ public class WeightBean {
     public  Integer id;
     public String data;
     public String date;
+    public String username;
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
 
     public Integer getId() {
         return id;

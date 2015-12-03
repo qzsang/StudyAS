@@ -48,6 +48,7 @@ dependencies {
     apt "org.androidannotations:androidannotations:$AAVersion"
     compile "org.androidannotations:androidannotations-api:$AAVersion"
     compile files('libs/lite-http-2.1.5-mini.jar')
+    compile files('libs/afinal_0.5.1_bin.jar')
 }
 
 apt {

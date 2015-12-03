@@ -4,16 +4,18 @@ package com.example.administrator.rocking.bean;
  * Created by Administrator on 2015/10/27.
  */
 public class HeartBean {
-    public Integer hid;
+
+    public Integer id;
     public String hdate;
     public String htime;
+    public String username;
 
-    public Integer getHid() {
-        return hid;
+    public String getUsername() {
+        return username;
     }
 
-    public void setHid(Integer hid) {
-        this.hid = hid;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getHdate() {
@@ -32,12 +34,11 @@ public class HeartBean {
         this.htime = htime;
     }
 
-    @Override
-    public String toString() {
-        return "HeartBean{" +
-                "hid=" + hid +
-                ", hdate='" + hdate + '\'' +
-                ", htime='" + htime + '\'' +
-                '}';
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 }

@@ -61,8 +61,22 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
-                    android:text="开" />
+                    android:text="开音乐" />
+
             </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="1sp"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/controlBtn1"
+                    android:text="开摇椅" />
+
+            </RelativeLayout>
+
         </LinearLayout>
 
         <TextView

@@ -21,14 +21,19 @@ import android.widget.Toast;
 
 import com.example.administrator.rocking.application.App;
 import com.example.administrator.rocking.application.Constant;
+import com.example.administrator.rocking.bean.UserBean;
 import com.litesuits.http.LiteHttp;
 import com.litesuits.http.exception.HttpException;
 import com.litesuits.http.listener.HttpListener;
 import com.litesuits.http.request.StringRequest;
 import com.litesuits.http.response.Response;
 
+import net.tsz.afinal.FinalDb;
+
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import java.util.List;
 
 /**
  * A login screen that offers login via email/password.
@@ -36,27 +41,22 @@ import org.json.JSONObject;
 public class LoginActivity extends AppCompatActivity  {
 
 
-    /**
-     * A dummy authentication store containing known user names and passwords.
-     * TODO: remove after connecting to a real authentication system.
-     */
     private static final String[] DUMMY_CREDENTIALS = new String[]{
             "foo@example.com:hello", "bar@example.com:world"
     };
-    /**
-     * Keep track of the login task to ensure we can cancel it if requested.
-     */
 
     // UI references.
     private AutoCompleteTextView mEmailView;
     private EditText mPasswordView;
     private View mProgressView;
     private View mLoginFormView;
-
+    FinalDb fdb = null;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+
         // Set up the login form.
         mEmailView = (AutoCompleteTextView) findViewById(R.id.email);
         mPasswordView = (EditText) findViewById(R.id.password);
@@ -82,6 +82,8 @@ public class LoginActivity extends AppCompatActivity  {
 
         mLoginFormView = findViewById(R.id.login_form);
         mProgressView = findViewById(R.id.login_progress);
+
+        fdb = FinalDb.create(LoginActivity.this);
     }
 
 
@@ -98,8 +100,8 @@ public class LoginActivity extends AppCompatActivity  {
         mPasswordView.setError(null);
 
         // Store values at the time of the login attempt.
-        String email = mEmailView.getText().toString();
-        String password = mPasswordView.getText().toString();
+        final String email = mEmailView.getText().toString();
+        final String password = mPasswordView.getText().toString();
 
         boolean cancel = false;
         View focusView = null;
@@ -146,8 +148,14 @@ public class LoginActivity extends AppCompatActivity  {
                         String rs = json.getString("result");
 
                         if (rs.equalsIgnoreCase("success")) {
+                            UserBean userBean = new UserBean();
+                            userBean.setUsername(email);
+                            userBean.setPwd(password);
+                            fdb.save(userBean);
+
+                            Constant.username = email;
                             startActivity(new Intent(LoginActivity.this, MainActivity_.class));
-                            finish();
+                            //finish();
                         } else {
                             Toast.makeText(LoginActivity.this, rs, Toast.LENGTH_LONG).show();
                         }
@@ -161,8 +169,15 @@ public class LoginActivity extends AppCompatActivity  {
                 public void onFailure(HttpException e, Response<String> response) {
                     // 失败：主线程回调，反馈异常
                     showProgress(false);
-                    Toast.makeText(LoginActivity.this, "网络异常", Toast.LENGTH_LONG).show();
+                    List<UserBean> list = fdb.findAllByWhere(UserBean.class, "username='" + email + "' and pwd='" + password +"'");
+                    if (list.size() > 0) {
+                        UserBean u = list.get(list.size()-1);
+                        Constant.username = email;
+                        startActivity(new Intent(LoginActivity.this, MainActivity_.class));
+                        finish();
+                    }
 
+                   // Toast.makeText(LoginActivity.this, "网络异常", Toast.LENGTH_LONG).show();
                 }
             }));
            /* mAuthTask = new UserLoginTask(email, password);

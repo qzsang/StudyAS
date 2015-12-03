@@ -51,7 +51,7 @@ public class ListViewAdapter extends ArrayAdapter<Object> {
 
         if (data_class == HeartBean.class) {
             HeartBean heartBean = (HeartBean) list.get(position);
-            tv_1.setText(heartBean.getHid() + "");
+            tv_1.setText(heartBean.getId() + "");
             tv_2.setText(heartBean.getHdate() + "");
             tv_3.setText(heartBean.getHtime() + "");
 

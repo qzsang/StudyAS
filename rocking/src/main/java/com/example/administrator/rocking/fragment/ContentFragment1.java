@@ -24,6 +24,8 @@ import com.litesuits.http.listener.HttpListener;
 import com.litesuits.http.request.StringRequest;
 import com.litesuits.http.response.Response;
 
+import net.tsz.afinal.FinalDb;
+
 import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.Click;
 import org.androidannotations.annotations.EFragment;
@@ -164,10 +166,23 @@ public class ContentFragment1 extends Fragment {
             @Override
             public void onFailure(HttpException e, Response<String> response) {
                 // 失败：主线程回调，反馈异常
-                Log.i("http", "onFailure");
+                /*Log.i("http", "onFailure");
                 Log.i("http", e.toString() + "");
                 Log.i("http", response.getResult() + "");
-                Toast.makeText(getActivity(), "网络异常", Toast.LENGTH_LONG).show();
+                Toast.makeText(getActivity(), "网络异常", Toast.LENGTH_LONG).show();*/
+                List<HeartBean> datas = FinalDb.create(getActivity()).findAllByWhere(HeartBean.class, "username='" + Constant.username + "'", "id desc limit 30");
+                if (datas == null || datas.size() == 0) {
+                    is_load_all = true;
+                    Toast.makeText(getActivity(), "已加载全部", Toast.LENGTH_LONG).show();
+                    lv_data.removeFooterView(pb_list_foot);
+                }
+
+                List<Object> list = listViewAdapter.getList();
+                    list.clear();
+                list.addAll(datas);
+                listViewAdapter.notifyDataSetChanged();
+                datas = null;
+
                 swipe_container.setRefreshing(false);
                 pb_list_foot.setVisibility(View.GONE);
             }
@@ -175,7 +190,6 @@ public class ContentFragment1 extends Fragment {
         page++;
         is_loading = false;
     }
-
     @Click({R.id.iv_title})
     public void openMenu(View v) {
         switch (v.getId()) {

@@ -92,6 +92,7 @@
     <orderEntry type="library" exported="" name="androidannotations-api-3.3.2" level="project" />
     <orderEntry type="library" exported="" name="appcompat-v7-23.0.0" level="project" />
     <orderEntry type="library" exported="" name="support-v4-23.0.0" level="project" />
+    <orderEntry type="library" exported="" name="afinal_0.5.1_bin" level="project" />
     <orderEntry type="library" exported="" name="lite-http-2.1.5-mini" level="project" />
     <orderEntry type="library" exported="" name="design-23.0.0" level="project" />
     <orderEntry type="library" exported="" name="support-annotations-23.0.0" level="project" />

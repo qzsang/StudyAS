@@ -8,4 +8,5 @@ public class Constant {
     static public final String heartData = serverUrl + "system/heartTextAction_list.do";//心率接
     static public final String weightData = serverUrl + "system/weightTextAction_list.do";//重力接
     static public final String login = serverUrl + "system/testAction_login.do";//登录接口
+    static public String username = "admin";
 }

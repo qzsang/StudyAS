@@ -63,6 +63,7 @@ public class ContentFragmentIndex extends Fragment implements View.OnClickListen
 
     int paintflag = 1;//绘图是否暂停标志位，0为暂停
     boolean controlFlg = false;
+    boolean controlFlg1 = false;
     public ConnectedThread thread = null;   //连接蓝牙设备线程
     static int temp = 0;                //临时变量用于保存接收到的数据
     private SurfaceHolder holder = null;    //画图使用，可以控制一个SurfaceView
@@ -97,7 +98,7 @@ public class ContentFragmentIndex extends Fragment implements View.OnClickListen
      *
      * 其中有几个常用的方法，锁定画布，结束锁定画布
      * */
-
+    private Button contro2_bn = null;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -113,6 +114,7 @@ public class ContentFragmentIndex extends Fragment implements View.OnClickListen
         // Button clear =(Button)findViewById(R.id.clear);
         stop_bn=(Button)view.findViewById(R.id.stop_bn);
         control_bn=(Button)view.findViewById(R.id.controlBtn);
+        contro2_bn = (Button) view.findViewById(R.id.controlBtn1);
         stop_bn.setOnClickListener(new MyButtonStopListener());
         surface = (SurfaceView)view.findViewById(R.id.show);
         //初始化SurfaceHolder对象
@@ -168,10 +170,36 @@ public class ContentFragmentIndex extends Fragment implements View.OnClickListen
             }
         });
 
+        contro2_bn.setOnClickListener(new View.OnClickListener() {
 
+            @Override
+            public void onClick(View arg0) {
+
+                String re = "";
+                if (controlFlg1) {
+                    re = "G1";
+
+                } else {
+                    re = "K1";
+                }
+                sendCMD(re);
+                contro2_bn.setText(controlFlg1 ? "开摇椅" : "关摇椅");
+                controlFlg1 = !controlFlg1;
+            }
+        });
         return view;
     }
+    public void sendCMD(String cmd){
 
+//	 cmd =cmd+"\r\n";
+        try {
+            mmOutStream.write(cmd.getBytes());
+            mmOutStream.flush();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -288,7 +316,7 @@ public class ContentFragmentIndex extends Fragment implements View.OnClickListen
 
     }
 
-    connect co = new connect();
+    connect co = new connect(getActivity());
     Handler handler = new Handler() {  //这是处理消息队列的Handler对象
 
         @Override

@@ -88,7 +88,7 @@ public class MainActivity extends AppCompatActivity
                 if (drawer_layout.isDrawerOpen(GravityCompat.START)) {
                     drawer_layout.closeDrawer(GravityCompat.START);
                 }
-                startActivity(new Intent(MainActivity.this,LoginActivity.class));
+                startActivity(new Intent(MainActivity.this, LoginActivity.class));
                 finish();
                 return true;
         }
